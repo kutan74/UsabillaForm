@@ -1,5 +1,5 @@
 //
-//  Usabilla.swift
+//  UsabillaFormView.swift
 //  Usabilla
 //
 //  Created by KUTAN ÇINGISIZ on 24.04.2019.
@@ -8,13 +8,7 @@
 
 import UIKit
 
-public class Usabilla {
-    let feedBackView = FeedBackView()
-    
-    
-}
-
-class FeedBackView: UIView {
+class UsabillaFormView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black

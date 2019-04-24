@@ -16,6 +16,15 @@
 		A09419162270747400D2202E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A09419152270747400D2202E /* Assets.xcassets */; };
 		A09419192270747400D2202E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A09419172270747400D2202E /* LaunchScreen.storyboard */; };
 		A0941921227075A500D2202E /* Usabilla.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0941920227075A500D2202E /* Usabilla.swift */; };
+		A09419242270B09900D2202E /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09419232270B09900D2202E /* UIViewController+Child.swift */; };
+		A09419272270B13A00D2202E /* UsabillaFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09419262270B13A00D2202E /* UsabillaFormViewController.swift */; };
+		A09419282270BB5D00D2202E /* Usabilla.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0941920227075A500D2202E /* Usabilla.swift */; };
+		A09419292270C2BD00D2202E /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09419232270B09900D2202E /* UIViewController+Child.swift */; };
+		A094192A2270C3E700D2202E /* UsabillaFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09419262270B13A00D2202E /* UsabillaFormViewController.swift */; };
+		A094192F2270C6DB00D2202E /* UsabillaFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094192E2270C6DB00D2202E /* UsabillaFormView.swift */; };
+		A09419312270C76600D2202E /* UsabillaFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094192E2270C6DB00D2202E /* UsabillaFormView.swift */; };
+		A09419352270C88600D2202E /* UsabillaFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09419342270C88600D2202E /* UsabillaFormDelegate.swift */; };
+		A09419362270C8A400D2202E /* UsabillaFormDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09419342270C88600D2202E /* UsabillaFormDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +52,10 @@
 		A09419182270747400D2202E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A094191A2270747400D2202E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0941920227075A500D2202E /* Usabilla.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usabilla.swift; sourceTree = "<group>"; };
+		A09419232270B09900D2202E /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
+		A09419262270B13A00D2202E /* UsabillaFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormViewController.swift; sourceTree = "<group>"; };
+		A094192E2270C6DB00D2202E /* UsabillaFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormView.swift; sourceTree = "<group>"; };
+		A09419342270C88600D2202E /* UsabillaFormDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +107,10 @@
 		A09418BB227073C800D2202E /* Usabilla */ = {
 			isa = PBXGroup;
 			children = (
+				A09419252270B12D00D2202E /* Source */,
+				A09419222270B07300D2202E /* Extensions */,
 				A09418BC227073C800D2202E /* Usabilla.h */,
 				A09418BD227073C800D2202E /* Info.plist */,
-				A0941920227075A500D2202E /* Usabilla.swift */,
 			);
 			path = Usabilla;
 			sourceTree = "<group>";
@@ -121,6 +135,49 @@
 				A094191A2270747400D2202E /* Info.plist */,
 			);
 			path = UsabillaExamples;
+			sourceTree = "<group>";
+		};
+		A09419222270B07300D2202E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A09419232270B09900D2202E /* UIViewController+Child.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A09419252270B12D00D2202E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A09419332270C87A00D2202E /* Protocols */,
+				A09419322270C86400D2202E /* Controllers */,
+				A094192D2270C6CD00D2202E /* Views */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		A094192D2270C6CD00D2202E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A094192E2270C6DB00D2202E /* UsabillaFormView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A09419322270C86400D2202E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0941920227075A500D2202E /* Usabilla.swift */,
+				A09419262270B13A00D2202E /* UsabillaFormViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A09419332270C87A00D2202E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A09419342270C88600D2202E /* UsabillaFormDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +322,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0941921227075A500D2202E /* Usabilla.swift in Sources */,
+				A09419352270C88600D2202E /* UsabillaFormDelegate.swift in Sources */,
+				A094192F2270C6DB00D2202E /* UsabillaFormView.swift in Sources */,
+				A09419272270B13A00D2202E /* UsabillaFormViewController.swift in Sources */,
+				A09419242270B09900D2202E /* UIViewController+Child.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +341,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A094192A2270C3E700D2202E /* UsabillaFormViewController.swift in Sources */,
+				A09419282270BB5D00D2202E /* Usabilla.swift in Sources */,
 				A09419112270747300D2202E /* ViewController.swift in Sources */,
 				A094190F2270747300D2202E /* AppDelegate.swift in Sources */,
+				A09419292270C2BD00D2202E /* UIViewController+Child.swift in Sources */,
+				A09419362270C8A400D2202E /* UsabillaFormDelegate.swift in Sources */,
+				A09419312270C76600D2202E /* UsabillaFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
