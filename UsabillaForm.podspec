@@ -11,14 +11,14 @@ Pod::Spec.new do |s|
   s.module_name   = 'Usabilla'
   s.ios.deployment_target  = '12.1'
 
-  s.homepage     = "https://github.com/kutan74/Usabilla"
+  s.homepage     = "https://github.com/kutan74/UsabillaForm"
   s.license      = { :type => "MIT", :file => "LICENSE" }  
   s.author             = { "Kutan Çıngısız" => "cingisiz.akutan@gmail.com" }
   
 
-  s.source       = { :git => "https://github.com/kutan74/Usabilla.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/kutan74/UsabillaForm.git", :tag => "#{s.version}" }
   s.source_files  = "Usabilla/**/*.{h,m,swift}"
-  
+  s.swift_version = '5.0'
   
   s.ios.framework  = 'UIKit'
 end
