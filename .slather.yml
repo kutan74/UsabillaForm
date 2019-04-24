@@ -1,0 +1,6 @@
+coverage_service: cobertura_xml
+xcodeproj: Usabilla.xcodeproj
+scheme: Usabilla
+output_directory: reports
+ignore:
+  - UsabillaTests/*
