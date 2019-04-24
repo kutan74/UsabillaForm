@@ -9,9 +9,11 @@
 import UIKit
 
 open class UsabillaFormViewController: UIViewController {
-    let formView = UsabillaFormView()
+    private let formView = UsabillaFormView()
+    private let form: UsabillaForm!
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    public init(form: UsabillaForm) {
+        self.form = form
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -21,7 +23,14 @@ open class UsabillaFormViewController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        layoutViews()
+    }
+}
+
+// MARK: Layout
+extension UsabillaFormViewController {
+    fileprivate func layoutViews() {
+        view.backgroundColor = .white
         view.addSubview(formView)
         formView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -30,7 +39,11 @@ open class UsabillaFormViewController: UIViewController {
             formView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             formView.heightAnchor.constraint(equalToConstant: 200)
             ])
-        
+    }
+    
+    /// Load the requested form by the user
+    func configureFormView() {
+        formView.activateForm(for: form.type)
     }
 }
 

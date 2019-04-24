@@ -10,7 +10,6 @@ import UIKit
 
 open class Usabilla: UIViewController {
     open var delegate: UsabillaFormDelegate?
-
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -25,8 +24,11 @@ open class Usabilla: UIViewController {
         
     }
     
-    open func initUsabilla() {
-        delegate?.didFormLoaded(UsabillaFormViewController())
+    /// Function to configure requested form
+    open func configureForm(with form: UsabillaForm) {
+        let controller = UsabillaFormViewController(form: form)
+        controller.configureFormView()
+        // We're done. Let the user know form is ready to be presented
+        delegate?.didFormLoaded(controller)
     }
-        
 }

@@ -1,5 +1,5 @@
 //
-//  UsabillaFormView.swift
+//  UsabillaRatingView.swift
 //  Usabilla
 //
 //  Created by KUTAN ÇINGISIZ on 24.04.2019.
@@ -8,10 +8,9 @@
 
 import UIKit
 
-class UsabillaFormView: UIView {
+class UsabillaRatingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -8,6 +8,9 @@
 
 import UIKit
 
+/// Protocol to communicate with root view controller
 public protocol UsabillaFormDelegate: class {
+    /** Function to notify user that the form is ready to be displayed
+    */
     func didFormLoaded(_ form: UIViewController)
 }

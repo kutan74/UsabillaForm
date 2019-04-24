@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func displayForm(_ sender: Any) {
-        usabilla.initUsabilla()
+        usabilla.configureForm(with: UsabillaForm(type: .FeedBack))
     }
     
 }
