@@ -33,12 +33,12 @@ open class Usabilla: UIViewController {
         formViewController.configureFormView()
         
         // We're done. Let the user know form is ready to be presented
-        delegate?.didFormLoaded(formViewController)
+        delegate?.didFormLoad(formViewController)
     }
 }
 
 extension Usabilla: UsabillaFormResultDelegate {    
     public func onDoneButtonTapped(with typedText: String) {
-        delegate?.didFormEnded(formViewController, typedText)
+        delegate?.didFormSubmit(formViewController, typedText)
     }
 }

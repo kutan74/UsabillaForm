@@ -27,12 +27,12 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UsabillaFormDelegate {
-    func didFormEnded(_ form: UIViewController, _ typedText: String) {
+    func didFormSubmit(_ form: UIViewController, _ typedText: String) {
         form.dismiss(animated: true, completion: nil)
         print(typedText)
     }
     
-    func didFormLoaded(_ form: UIViewController) {
+    func didFormLoad(_ form: UIViewController) {
         present(form, animated: true, completion: nil)
     }
 }
