@@ -12,9 +12,7 @@ Welcome to **UsabillaForm** — a suite of class that aims to display feedback f
 
 Create a new Usabilla form without custom properties
 ```swift
-let form = UsabillaForm(formID: "yourFormId", 
-						type: .FeedBack, 
-						customProperties: nil)
+llet form = UsabillaForm(formID: "yourFormId", type: .FeedBack, customProperties: nil)
 ```
 
 You can set custom properties such as form background color, form title color and form title font
@@ -22,9 +20,8 @@ You can set custom properties such as form background color, form title color an
 let customFormProperties = FormProperties(formBackgroundColor: .white,
                                           formTitleTextColor: .black,
                                           formTitleFont: .systemFont(ofSize: 14, weight: .light))
-let form = UsabillaForm(formID: "yourFormId", 
-						type: .FeedBack, 
-						customProperties: customFormProperties)
+
+let form = UsabillaForm(formID: "yourFormId", type: .FeedBack, customProperties: customFormProperties)
 ```
 
 Initialise the Usabilla form and set delegate to self
