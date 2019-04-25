@@ -11,6 +11,8 @@ import UIKit
 open class Usabilla: UIViewController {
     open var delegate: UsabillaFormDelegate?
     
+    private var formViewController: UsabillaFormViewController!
+    
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,9 +28,17 @@ open class Usabilla: UIViewController {
     
     /// Function to configure requested form
     open func configureForm(with form: UsabillaForm) {
-        let controller = UsabillaFormViewController(form: form)
-        controller.configureFormView()
+        formViewController = UsabillaFormViewController(form: form)
+        formViewController.delegate = self
+        formViewController.configureFormView()
+        
         // We're done. Let the user know form is ready to be presented
-        delegate?.didFormLoaded(controller)
+        delegate?.didFormLoaded(formViewController)
+    }
+}
+
+extension Usabilla: UsabillaFormResultDelegate {    
+    public func onDoneButtonTapped(with typedText: String) {
+        delegate?.didFormEnded(formViewController, typedText)
     }
 }

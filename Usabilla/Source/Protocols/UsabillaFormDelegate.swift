@@ -13,4 +13,8 @@ public protocol UsabillaFormDelegate: class {
     /** Function to notify user that the form is ready to be displayed
     */
     func didFormLoaded(_ form: UIViewController)
+    
+    /** Function to notify user that the user done with the form
+    */
+    func didFormEnded(_ form: UIViewController, _ typedText: String)
 }

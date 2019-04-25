@@ -47,6 +47,8 @@ extension UsabillaFormView {
         switch formType {
         case .FeedBack:
             feedBackView.isHidden = false
+            // I'm not sure if it's the right place to call this function ?
+            feedBackView.textField.becomeFirstResponder()
         case .Rating:
             ratingView.isHidden = false
         }

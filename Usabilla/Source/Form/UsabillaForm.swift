@@ -14,9 +14,11 @@ public enum FormType {
 }
 
 public struct UsabillaForm {
-    var type: FormType
+    var formID: String
+    var type: FormType?
     
-    init(type: FormType) {
+    init(formID: String, type: FormType?) {
+        self.formID = formID
         self.type = type
     }
 }

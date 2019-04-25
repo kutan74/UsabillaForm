@@ -31,6 +31,10 @@
 		A094195F2270D09100D2202E /* UsabillaRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094195E2270D09100D2202E /* UsabillaRatingView.swift */; };
 		A09419602270D0B300D2202E /* UsabillaRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094195E2270D09100D2202E /* UsabillaRatingView.swift */; };
 		A09419612270D0B800D2202E /* UsabillaFeedBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094195C2270D06600D2202E /* UsabillaFeedBackView.swift */; };
+		A094196322718E9E00D2202E /* UsabillaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094196222718E9E00D2202E /* UsabillaTextView.swift */; };
+		A094196422718F3400D2202E /* UsabillaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094196222718E9E00D2202E /* UsabillaTextView.swift */; };
+		A0941966227196F800D2202E /* UsabillaFormResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */; };
+		A0941967227196FC00D2202E /* UsabillaFormResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,8 @@
 		A09419552270CF3100D2202E /* UsabillaForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaForm.swift; sourceTree = "<group>"; };
 		A094195C2270D06600D2202E /* UsabillaFeedBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFeedBackView.swift; sourceTree = "<group>"; };
 		A094195E2270D09100D2202E /* UsabillaRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaRatingView.swift; sourceTree = "<group>"; };
+		A094196222718E9E00D2202E /* UsabillaTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaTextView.swift; sourceTree = "<group>"; };
+		A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormResultDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +163,6 @@
 		A09419252270B12D00D2202E /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A094195A2270D04300D2202E /* FormViewController */,
 				A09419592270D03600D2202E /* Form */,
 				A09419332270C87A00D2202E /* Protocols */,
 				A09419322270C86400D2202E /* Controllers */,
@@ -169,6 +174,10 @@
 		A094192D2270C6CD00D2202E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A094195C2270D06600D2202E /* UsabillaFeedBackView.swift */,
+				A094195E2270D09100D2202E /* UsabillaRatingView.swift */,
+				A094196222718E9E00D2202E /* UsabillaTextView.swift */,
+				A094192E2270C6DB00D2202E /* UsabillaFormView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				A0941920227075A500D2202E /* Usabilla.swift */,
+				A09419262270B13A00D2202E /* UsabillaFormViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				A09419342270C88600D2202E /* UsabillaFormDelegate.swift */,
+				A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -195,25 +206,6 @@
 				A09419552270CF3100D2202E /* UsabillaForm.swift */,
 			);
 			path = Form;
-			sourceTree = "<group>";
-		};
-		A094195A2270D04300D2202E /* FormViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A094195B2270D05800D2202E /* FormViews */,
-				A094192E2270C6DB00D2202E /* UsabillaFormView.swift */,
-				A09419262270B13A00D2202E /* UsabillaFormViewController.swift */,
-			);
-			path = FormViewController;
-			sourceTree = "<group>";
-		};
-		A094195B2270D05800D2202E /* FormViews */ = {
-			isa = PBXGroup;
-			children = (
-				A094195C2270D06600D2202E /* UsabillaFeedBackView.swift */,
-				A094195E2270D09100D2202E /* UsabillaRatingView.swift */,
-			);
-			path = FormViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,9 +351,11 @@
 			files = (
 				A094195F2270D09100D2202E /* UsabillaRatingView.swift in Sources */,
 				A0941921227075A500D2202E /* Usabilla.swift in Sources */,
+				A094196322718E9E00D2202E /* UsabillaTextView.swift in Sources */,
 				A09419352270C88600D2202E /* UsabillaFormDelegate.swift in Sources */,
 				A09419562270CF3100D2202E /* UsabillaForm.swift in Sources */,
 				A094192F2270C6DB00D2202E /* UsabillaFormView.swift in Sources */,
+				A0941966227196F800D2202E /* UsabillaFormResultDelegate.swift in Sources */,
 				A09419272270B13A00D2202E /* UsabillaFormViewController.swift in Sources */,
 				A09419242270B09900D2202E /* UIViewController+Child.swift in Sources */,
 				A094195D2270D06600D2202E /* UsabillaFeedBackView.swift in Sources */,
@@ -380,11 +374,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0941967227196FC00D2202E /* UsabillaFormResultDelegate.swift in Sources */,
 				A09419602270D0B300D2202E /* UsabillaRatingView.swift in Sources */,
 				A094192A2270C3E700D2202E /* UsabillaFormViewController.swift in Sources */,
 				A09419282270BB5D00D2202E /* Usabilla.swift in Sources */,
 				A09419112270747300D2202E /* ViewController.swift in Sources */,
 				A094190F2270747300D2202E /* AppDelegate.swift in Sources */,
+				A094196422718F3400D2202E /* UsabillaTextView.swift in Sources */,
 				A09419292270C2BD00D2202E /* UIViewController+Child.swift in Sources */,
 				A09419362270C8A400D2202E /* UsabillaFormDelegate.swift in Sources */,
 				A09419572270CFA200D2202E /* UsabillaForm.swift in Sources */,
@@ -558,6 +554,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Usabilla/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -585,6 +582,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Usabilla/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,6 +641,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PT2V6T6JDZ;
 				INFOPLIST_FILE = UsabillaExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -661,6 +660,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PT2V6T6JDZ;
 				INFOPLIST_FILE = UsabillaExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
