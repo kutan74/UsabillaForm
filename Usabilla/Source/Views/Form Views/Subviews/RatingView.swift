@@ -1,14 +1,14 @@
 //
-//  UsabillaRatingView.swift
+//  RatingView.swift
 //  Usabilla
 //
-//  Created by KUTAN ÇINGISIZ on 24.04.2019.
+//  Created by KUTAN ÇINGISIZ on 25.04.2019.
 //  Copyright © 2019 KUTAN ÇINGISIZ. All rights reserved.
 //
 
 import UIKit
 
-class UsabillaRatingView: UIView {
+class RatingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

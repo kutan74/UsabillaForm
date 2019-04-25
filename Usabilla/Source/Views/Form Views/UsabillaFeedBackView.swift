@@ -25,8 +25,6 @@ class UsabillaFeedBackView: UIView {
         return textField
     }()
     
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutViews()
@@ -53,5 +51,16 @@ extension UsabillaFeedBackView {
             textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             textField.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width - 24),
             ])
+    }
+}
+
+// MARK: Form settings
+extension UsabillaFeedBackView {
+    /** Apply form settings. Apply default settings If user doesn't specify one
+    */
+    func applyFormSettings(for form: UsabillaForm) {
+        titleLabel.textColor = form.customProperties?.formTitleTextColor
+        titleLabel.font = form.customProperties?.formTitleFont
+        backgroundColor = form.customProperties?.formBackgroundColor
     }
 }

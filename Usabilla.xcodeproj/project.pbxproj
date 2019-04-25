@@ -35,6 +35,7 @@
 		A094196422718F3400D2202E /* UsabillaTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094196222718E9E00D2202E /* UsabillaTextView.swift */; };
 		A0941966227196F800D2202E /* UsabillaFormResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */; };
 		A0941967227196FC00D2202E /* UsabillaFormResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */; };
+		A094196B2271E73400D2202E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A094196A2271E73400D2202E /* RatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		A094195E2270D09100D2202E /* UsabillaRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaRatingView.swift; sourceTree = "<group>"; };
 		A094196222718E9E00D2202E /* UsabillaTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaTextView.swift; sourceTree = "<group>"; };
 		A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormResultDelegate.swift; sourceTree = "<group>"; };
+		A094196A2271E73400D2202E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,9 +176,7 @@
 		A094192D2270C6CD00D2202E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A094195C2270D06600D2202E /* UsabillaFeedBackView.swift */,
-				A094195E2270D09100D2202E /* UsabillaRatingView.swift */,
-				A094196222718E9E00D2202E /* UsabillaTextView.swift */,
+				A09419682271E70D00D2202E /* Form Views */,
 				A094192E2270C6DB00D2202E /* UsabillaFormView.swift */,
 			);
 			path = Views;
@@ -206,6 +206,25 @@
 				A09419552270CF3100D2202E /* UsabillaForm.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		A09419682271E70D00D2202E /* Form Views */ = {
+			isa = PBXGroup;
+			children = (
+				A09419692271E71E00D2202E /* Subviews */,
+				A094195E2270D09100D2202E /* UsabillaRatingView.swift */,
+				A094195C2270D06600D2202E /* UsabillaFeedBackView.swift */,
+			);
+			path = "Form Views";
+			sourceTree = "<group>";
+		};
+		A09419692271E71E00D2202E /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				A094196222718E9E00D2202E /* UsabillaTextView.swift */,
+				A094196A2271E73400D2202E /* RatingView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A094196B2271E73400D2202E /* RatingView.swift in Sources */,
 				A094195F2270D09100D2202E /* UsabillaRatingView.swift in Sources */,
 				A0941921227075A500D2202E /* Usabilla.swift in Sources */,
 				A094196322718E9E00D2202E /* UsabillaTextView.swift in Sources */,

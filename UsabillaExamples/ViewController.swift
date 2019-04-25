@@ -10,18 +10,35 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
-    let usabilla = Usabilla()
+    var usabilla: Usabilla!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        usabilla.delegate = self
-        
     }
 
     @IBAction func displayForm(_ sender: Any) {
-        usabilla.configureForm(with: UsabillaForm(formID: "", type: .FeedBack))
+        let form = UsabillaForm(formID: "yourFormId", type: .FeedBack, customProperties: nil)
+        usabilla = Usabilla(form: form)
+        
+        usabilla.delegate = self
+        usabilla.configureForm()
+    }
+    
+    func formWithDefaultProperties() {
+        let customFormProperties = FormProperties(formBackgroundColor: .white,
+                                                  formTitleTextColor: .black,
+                                                  formTitleFont: .systemFont(ofSize: 14, weight: .light))
+        let form = UsabillaForm(formID: "yourFormId", type: .FeedBack, customProperties: customFormProperties)
+        usabilla = Usabilla(form: form)
+        
+        usabilla.delegate = self
+        usabilla.configureForm()
+    }
+    
+    func formWithCustomProperties() {
+        usabilla.delegate = self
+        usabilla.configureForm()
     }
     
 }

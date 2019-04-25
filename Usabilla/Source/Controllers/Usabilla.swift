@@ -12,11 +12,13 @@ open class Usabilla: UIViewController {
     open var delegate: UsabillaFormDelegate?
     
     private var formViewController: UsabillaFormViewController!
+    private var form: UsabillaForm!
     
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    init(form: UsabillaForm) {
+        self.form = form
         super.init(nibName: nil, bundle: nil)
     }
-    
+   
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -27,7 +29,7 @@ open class Usabilla: UIViewController {
     }
     
     /// Function to configure requested form
-    open func configureForm(with form: UsabillaForm) {
+    open func configureForm() {
         formViewController = UsabillaFormViewController(form: form)
         formViewController.delegate = self
         formViewController.configureFormView()

@@ -63,11 +63,7 @@ extension UsabillaFormViewController {
     /// Load the requested form by the user
     func configureFormView() {
         // Load the default form if none requested
-        guard let formType = form.type else {
-            formView.activateForm(for: .FeedBack)
-            return
-        }
-        formView.activateForm(for: formType)
+        formView.activateForm(for: form)
     }   
 }
 

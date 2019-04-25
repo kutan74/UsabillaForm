@@ -43,10 +43,11 @@ private extension UsabillaFormView {
 
 // MARK: FormViews Visibility
 extension UsabillaFormView {
-    func activateForm(for formType: FormType) {
-        switch formType {
+    func activateForm(for form: UsabillaForm) {
+        switch form.type! {
         case .FeedBack:
             feedBackView.isHidden = false
+            feedBackView.applyFormSettings(for: form)
             // I'm not sure if it's the right place to call this function ?
             feedBackView.textField.becomeFirstResponder()
         case .Rating:
