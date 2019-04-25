@@ -20,9 +20,8 @@ let form = UsabillaForm(formID: "yourFormId",
 You can set custom properties such as form background color, form title color and form title font
 ```swift
 let customFormProperties = FormProperties(formBackgroundColor: .white,
-										  formTitleTextColor: .black,
-										  formTitleFont: .systemFont(ofSize: 14, weight: .light))
-
+                                          formTitleTextColor: .black,
+                                          formTitleFont: .systemFont(ofSize: 14, weight: .light))
 let form = UsabillaForm(formID: "yourFormId", 
 						type: .FeedBack, 
 						customProperties: customFormProperties)
