@@ -17,8 +17,9 @@ let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
 
 Initialise the Usabilla form and set delegate to self
 ```swift
-let usabilla = Usabilla(with: form)
+let usabilla = Usabilla(form: form)
 usabilla.delegate = self
+usabilla.configureForm()
 ```
 
 Comfort the UsabillaFormDelegate in your view controller
