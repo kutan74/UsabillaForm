@@ -10,18 +10,22 @@ Welcome to **UsabillaForm** — a suite of class that aims to display feedback f
 
 ### Examples 
 
-Create a new Usabilla form without custom properties
+Create a new Usabilla feedback form without custom properties
 ```swift
-let form = UsabillaForm(formID: "yourFormId", type: .FeedBack, customProperties: nil)
+let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
+```
+
+Or rating form
+```swift
+let form = UsabillaForm(formID: "yourFormId", type: .Rating)
 ```
 
 You can set custom properties such as form background color, form title color and form title font
 ```swift
-let customFormProperties = FormProperties(formBackgroundColor: .white,
-                                          formTitleTextColor: .black,
-                                          formTitleFont: .systemFont(ofSize: 14, weight: .light))
-
-let form = UsabillaForm(formID: "yourFormId", type: .FeedBack, customProperties: customFormProperties)
+let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
+form.customProperties = UsabillaForm.UsabillaFormProperties(formBackgroundColor: .black,
+                                                            formTitleTextColor: .black,
+                                                            formTitleFont: .systemFont(ofSize: 14, weight: .light))
 ```
 
 Initialise the Usabilla form and set delegate to self
@@ -38,8 +42,14 @@ extension YourViewController: UsabillaFormDelegate {
 		// present(form, animated: true, completion: nil)
 	}
 
+    // Optional func for feedback form
 	func didFormSubmit(_ form: UIViewController, _ typedText: String) {
 		// form.dismiss(animated: true, completion: nil)
 	}	
+
+    // Optional func for rating form
+    func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
+        // form.dismiss(animated: true, completion: nil)
+    }
 }
 ```
