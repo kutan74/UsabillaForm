@@ -12,4 +12,5 @@ public protocol UsabillaFormResultDelegate: class {
     /** Function to notify user that the form is closed and user pressed done button
     */
     func onDoneButtonTapped(with typedText: String)
+    func onRatingSubmitButtonTapped(with rating: Int)
 }

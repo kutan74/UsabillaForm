@@ -19,6 +19,9 @@ open class UsabillaFormViewController: UIViewController {
     
     open var delegate: UsabillaFormResultDelegate?
     
+    /// Rating
+    lazy var rating = 0
+    
     public init(form: UsabillaForm) {
         self.form = form
         super.init(nibName: nil, bundle: nil)
@@ -32,6 +35,7 @@ open class UsabillaFormViewController: UIViewController {
         super.viewDidLoad()
         layoutViews()
         setKeyboardNotifications()
+        setLayoutGestures()
     }
     
     fileprivate func setKeyboardNotifications() {
@@ -44,6 +48,24 @@ open class UsabillaFormViewController: UIViewController {
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
+    
+    fileprivate func setLayoutGestures() {
+        guard form.type! == .Rating else {
+            return
+        }
+        
+        formView.ratingView.sendButton.addTarget(self, action: #selector(onRatingViewSendButtonTapped), for: .touchUpInside)
+        
+        formView.ratingView.stackView.isUserInteractionEnabled = true        
+        /// Bad naming
+        formView.ratingView.stackView.subviews.forEach {
+            guard let starView = $0 as? UIButton else {
+                return
+            }
+            starView.isUserInteractionEnabled = true
+            starView.addTarget(self, action: #selector(onRatingChanged(_:)), for: .touchUpInside)
+        }
+    }
 }
 
 // MARK: Layout
@@ -53,10 +75,11 @@ extension UsabillaFormViewController {
         view.addSubview(formView)
         formView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            formView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             formView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             formView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             ])
-        formViewBottomConstraint = formView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        formViewBottomConstraint = formView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         formViewBottomConstraint.isActive = true
     }
    
@@ -87,7 +110,7 @@ extension UsabillaFormViewController {
         }
     }
     
-    /** Function reset FormViews frame position when the keyboard is closed
+    /** Function to reset FormViews frame position when the keyboard is closed
      It also means that the users done with the form. Let our parent view controller knows that we are ready to submit
     */
     @objc func keyboardWillHide(notification: NSNotification) {
@@ -97,15 +120,20 @@ extension UsabillaFormViewController {
                 self.view.layoutIfNeeded()
             })
             
-            /// Don't know if it's makes sense to prevent nil inputs ?
-            /*
-            guard formView.feedBackView.textField.text != nil else {
-                return
-            }
-            */
-            
             delegate?.onDoneButtonTapped(with: formView.feedBackView.textField.text)
         }
     }
 }
 
+extension UsabillaFormViewController {
+    @objc func onRatingChanged(_ sender: UIButton) {
+        let rating = sender.tag
+        self.rating = rating
+        
+        formView.ratingView.updateRatingStars(to: self.rating)
+    }
+    
+    @objc func onRatingViewSendButtonTapped() {
+        delegate?.onRatingSubmitButtonTapped(with: rating)
+    }
+}

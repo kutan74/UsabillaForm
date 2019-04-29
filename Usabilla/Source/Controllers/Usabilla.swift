@@ -39,8 +39,12 @@ open class Usabilla: UIViewController {
     }
 }
 
-extension Usabilla: UsabillaFormResultDelegate {    
+extension Usabilla: UsabillaFormResultDelegate {
+    public func onRatingSubmitButtonTapped(with rating: Int) {
+        delegate?.didRatingSubmit?(formViewController, rating)
+    }
+    
     public func onDoneButtonTapped(with typedText: String) {
-        delegate?.didFormSubmit(formViewController, typedText)
+        delegate?.didFormSubmit!(formViewController, typedText)
     }
 }

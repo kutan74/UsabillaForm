@@ -9,12 +9,16 @@
 import UIKit
 
 /// Protocol to communicate with root view controller
-public protocol UsabillaFormDelegate: class {
+@objc public protocol UsabillaFormDelegate: class {
     /** Function to notify user that the form is ready to be displayed
     */
     func didFormLoad(_ form: UIViewController)
     
-    /** Function to notify user that the user done with the form
+    /** Feedback submission
     */
-    func didFormSubmit(_ form: UIViewController, _ typedText: String)
+    @objc optional func didFormSubmit(_ form: UIViewController, _ typedText: String)
+
+    /** Rating submission
+    */
+    @objc optional func didRatingSubmit(_ form: UIViewController, _ rating: Int)
 }
