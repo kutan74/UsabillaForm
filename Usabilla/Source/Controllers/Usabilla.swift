@@ -40,6 +40,7 @@ open class Usabilla: UIViewController {
             delegate?.didFormLoad!(formViewController)
         case .Survey:
             surveyViewController = UsabillaSurveyViewController(form: form)
+            surveyViewController.delegate = self
             delegate?.didFormLoad!(surveyViewController)
             break
         }
@@ -53,7 +54,8 @@ open class Usabilla: UIViewController {
             formViewController.configureFormView()
             handler(formViewController)
         case .Survey:
-            surveyViewController = UsabillaSurveyViewController(form: form)              
+            surveyViewController = UsabillaSurveyViewController(form: form)
+            surveyViewController.delegate = self
             handler(surveyViewController)
             break
         }
@@ -67,5 +69,11 @@ extension Usabilla: UsabillaFormResultDelegate {
     
     public func onDoneButtonTapped(with typedText: String) {
         delegate?.didFormSubmit!(formViewController, typedText)
+    }
+}
+
+extension Usabilla: UsabillaSurveyResultDelegate {
+    public func onSubmitSurveyButtonTapped(result: [String : Int]) {
+        delegate?.didSurveySubmitted?(surveyViewController, result)
     }
 }

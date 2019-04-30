@@ -10,6 +10,9 @@ import UIKit
 
 open class UsabillaSurveyViewControllerDataSource: NSObject {
     var surveyQuestions: [String]!
+    var selection: [Int: Int] = [:]
+    
+    weak var delegate: UsabillaSurveyDataSourceDelegate?
     
     init(surveyQuestions: [String]) {
         self.surveyQuestions = surveyQuestions
@@ -36,6 +39,22 @@ extension UsabillaSurveyViewControllerDataSource: UICollectionViewDelegate, UICo
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ratingCell", for: indexPath) as! UsabillaSurveyRatingCollectionViewCell
+        
+        // I think it's a bad way to select / deselect cells
+        // Couldn't come up with a better solution
+        if selection[collectionView.tag] == indexPath.row {
+            cell.checkBoxView.backgroundColor = .black
+        } else {
+            cell.checkBoxView.backgroundColor = .white
+        }
         return cell
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let row = collectionView.tag
+        let column = indexPath.row
+        selection[row] = column
+        collectionView.reloadData()
+        delegate?.onQuestionRated(for: surveyQuestions[row], with: column)
     }
 }

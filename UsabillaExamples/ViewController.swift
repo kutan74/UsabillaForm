@@ -84,5 +84,10 @@ extension ViewController: UsabillaFormDelegate {
         form.dismiss(animated: true, completion: nil)
         print(rating)
     }
+    
+    func didSurveySubmitted(_ form: UIViewController, _ surveyResult: [String : Int]) {
+        form.dismiss(animated: true, completion: nil)
+        print(surveyResult)
+    }
 }
 

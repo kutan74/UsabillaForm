@@ -44,6 +44,7 @@ private extension UsabillaSurveyTableViewCell {
         collectionView.register(UsabillaSurveyRatingCollectionViewCell.self, forCellWithReuseIdentifier: "ratingCell")
         collectionView.backgroundColor = .white
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.allowsMultipleSelection = false
         
         [titleLabel, collectionView].forEach {
             addSubview($0!)

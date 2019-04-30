@@ -51,6 +51,10 @@
 		A0CC180C227884BE00A7189F /* UsabillaSurveyViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC180A2278829A00A7189F /* UsabillaSurveyViewControllerDataSource.swift */; };
 		A0CC180F22788FCF00A7189F /* UsabillaSurveyRatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC180E22788FCF00A7189F /* UsabillaSurveyRatingCollectionViewCell.swift */; };
 		A0CC181022788FEE00A7189F /* UsabillaSurveyRatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC180E22788FCF00A7189F /* UsabillaSurveyRatingCollectionViewCell.swift */; };
+		A0CC18122278BB0200A7189F /* UsabillaSurveyDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC18112278BB0200A7189F /* UsabillaSurveyDataSourceDelegate.swift */; };
+		A0CC18132278BB4000A7189F /* UsabillaSurveyDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC18112278BB0200A7189F /* UsabillaSurveyDataSourceDelegate.swift */; };
+		A0CC18152278BBF200A7189F /* UsabillaSurveyResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC18142278BBF200A7189F /* UsabillaSurveyResultDelegate.swift */; };
+		A0CC18162278BC2800A7189F /* UsabillaSurveyResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC18142278BBF200A7189F /* UsabillaSurveyResultDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,8 @@
 		A0CC1803227881FD00A7189F /* UsabillaSurveyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaSurveyTableViewCell.swift; sourceTree = "<group>"; };
 		A0CC180A2278829A00A7189F /* UsabillaSurveyViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaSurveyViewControllerDataSource.swift; sourceTree = "<group>"; };
 		A0CC180E22788FCF00A7189F /* UsabillaSurveyRatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaSurveyRatingCollectionViewCell.swift; sourceTree = "<group>"; };
+		A0CC18112278BB0200A7189F /* UsabillaSurveyDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaSurveyDataSourceDelegate.swift; sourceTree = "<group>"; };
+		A0CC18142278BBF200A7189F /* UsabillaSurveyResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaSurveyResultDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +230,8 @@
 			children = (
 				A09419342270C88600D2202E /* UsabillaFormDelegate.swift */,
 				A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */,
+				A0CC18112278BB0200A7189F /* UsabillaSurveyDataSourceDelegate.swift */,
+				A0CC18142278BBF200A7189F /* UsabillaSurveyResultDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -469,10 +477,12 @@
 				A09419272270B13A00D2202E /* UsabillaFormViewController.swift in Sources */,
 				A0CC17FF2278813C00A7189F /* UIViewController+Layout.swift in Sources */,
 				A0CC17F922781EB200A7189F /* UsabillaConstants.swift in Sources */,
+				A0CC18152278BBF200A7189F /* UsabillaSurveyResultDelegate.swift in Sources */,
 				A09419242270B09900D2202E /* UIViewController+Child.swift in Sources */,
 				A094195D2270D06600D2202E /* UsabillaFeedBackView.swift in Sources */,
 				A0CC180F22788FCF00A7189F /* UsabillaSurveyRatingCollectionViewCell.swift in Sources */,
 				A0CC17FC2278806600A7189F /* UsabillaSurveyViewController.swift in Sources */,
+				A0CC18122278BB0200A7189F /* UsabillaSurveyDataSourceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +508,7 @@
 				A094190F2270747300D2202E /* AppDelegate.swift in Sources */,
 				A094196422718F3400D2202E /* UsabillaTextView.swift in Sources */,
 				A09419292270C2BD00D2202E /* UIViewController+Child.swift in Sources */,
+				A0CC18162278BC2800A7189F /* UsabillaSurveyResultDelegate.swift in Sources */,
 				A09419362270C8A400D2202E /* UsabillaFormDelegate.swift in Sources */,
 				A0CC18062278824C00A7189F /* UIViewController+Layout.swift in Sources */,
 				A09419572270CFA200D2202E /* UsabillaForm.swift in Sources */,
@@ -506,6 +517,7 @@
 				A0CC17FA22781EE700A7189F /* UsabillaConstants.swift in Sources */,
 				A0CC181022788FEE00A7189F /* UsabillaSurveyRatingCollectionViewCell.swift in Sources */,
 				A09419312270C76600D2202E /* UsabillaFormView.swift in Sources */,
+				A0CC18132278BB4000A7189F /* UsabillaSurveyDataSourceDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

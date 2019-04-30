@@ -63,3 +63,23 @@ usabilla.configureForm { (form) in
 }
 ```
 
+### Surveys
+```swift
+var form = UsabillaForm(formID: "yourFormId", type: .Survey)
+let surveyQuestions = ["How do you scale our product ?",
+                       "How was your overal shopping experience ?"]
+form.survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
+        
+usabilla = Usabilla(form: form)
+usabilla.delegate = self
+usabilla.configureForm { (surveyViewController) in
+    self.present(surveyViewController, animated: true, completion: nil)
+}
+```
+
+Delegate
+```swift
+func didSurveySubmitted(_ form: UIViewController, _ surveyResult: [String : Int]) {
+    form.dismiss(animated: true, completion: nil)    
+}
+```

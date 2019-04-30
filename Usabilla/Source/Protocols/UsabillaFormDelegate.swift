@@ -21,4 +21,9 @@ import UIKit
     /** Rating submission
     */
     @objc optional func didRatingSubmit(_ form: UIViewController, _ rating: Int)
+    
+    /** Survey submission
+    */
+    @objc optional func didSurveySubmitted(_ form: UIViewController, _ surveyResult: [String: Int])
 }
+
