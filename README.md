@@ -44,15 +44,15 @@ extension YourViewController: UsabillaFormDelegate {
 		// present(form, animated: true, completion: nil)
 	}
 
-    // Optional func for feedback form
+    	// Optional func for feedback form
 	func didFormSubmit(_ form: UIViewController, _ typedText: String) {
 		// form.dismiss(animated: true, completion: nil)
 	}	
 
-    // Optional func for rating form
-    func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
-        // form.dismiss(animated: true, completion: nil)
-    }
+        // Optional func for rating form
+    	func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
+        	// form.dismiss(animated: true, completion: nil)
+	}
 }
 ```
 
