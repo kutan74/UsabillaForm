@@ -10,6 +10,7 @@ import UIKit
 
 open class Usabilla: UIViewController {
     open var delegate: UsabillaFormDelegate?
+    public typealias FormLoadingHandler = (UIViewController) -> Void
     
     private var formViewController: UsabillaFormViewController!
     private var form: UsabillaForm!
@@ -35,7 +36,14 @@ open class Usabilla: UIViewController {
         formViewController.configureFormView()
         
         // We're done. Let the user know form is ready to be presented
-        delegate?.didFormLoad(formViewController)
+        delegate?.didFormLoad!(formViewController)
+    }
+    
+    open func configureForm(then handler: @escaping FormLoadingHandler) {
+        formViewController = UsabillaFormViewController(form: form)
+        formViewController.delegate = self
+        formViewController.configureFormView()
+        handler(formViewController)
     }
 }
 

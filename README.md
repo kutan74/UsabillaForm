@@ -15,7 +15,7 @@ Create a new Usabilla feedback form without custom properties
 let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
 ```
 
-Or rating form
+Or rating view
 ```swift
 let form = UsabillaForm(formID: "yourFormId", type: .Rating)
 ```
@@ -23,9 +23,11 @@ let form = UsabillaForm(formID: "yourFormId", type: .Rating)
 You can set custom properties such as form background color, form title color and form title font
 ```swift
 let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
-form.customProperties = UsabillaForm.UsabillaFormProperties(formBackgroundColor: .black,
-                                                            formTitleTextColor: .black,
-                                                            formTitleFont: .systemFont(ofSize: 14, weight: .light))
+form.customProperties = UsabillaForm.UsabillaFormProperties(formBackgroundColor: .white,
+                                                                    formTitleTextColor: .black,
+                                                                    formTitleFont: .systemFont(ofSize: 12, weight: .light),
+                                                                    feedBackQuestionTitle: "Your feedback",
+                                                                    ratingTitle: "Rate our awesome app")
 ```
 
 Initialise the Usabilla form and set delegate to self
@@ -53,3 +55,11 @@ extension YourViewController: UsabillaFormDelegate {
     }
 }
 ```
+
+You can load the form with completion handler. You don't have to comfort the didFormLoad if you use completion handler
+```swift
+usabilla.configureForm { (form) in
+    self.present(form, animated: true, completion: nil)            
+}
+```
+

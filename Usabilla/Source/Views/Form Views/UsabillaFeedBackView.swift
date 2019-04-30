@@ -62,5 +62,6 @@ extension UsabillaFeedBackView {
         titleLabel.textColor = form.customProperties?.formTitleTextColor
         titleLabel.font = form.customProperties?.formTitleFont
         backgroundColor = form.customProperties?.formBackgroundColor
+        titleLabel.text = form.customProperties?.feedBackQuestionTitle
     }
 }

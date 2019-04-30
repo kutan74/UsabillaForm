@@ -18,18 +18,27 @@ class ViewController: UIViewController {
     }
 
     @IBAction func displayForm(_ sender: Any) {
-        formWithDefaultProperties()
+        formWithCustomProperties()
     }
     
     func formWithDefaultProperties() {
-        let form = UsabillaForm(formID: "yourFormId", type: .Rating)
+        let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
         usabilla.configureForm()
     }
     
-    func formWithFeedBack() {
+    func formWithCompletionHandler() {
         let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
+        usabilla = Usabilla(form: form)
+        usabilla.delegate = self
+        usabilla.configureForm { (form) in
+            self.present(form, animated: true, completion: nil)
+        }
+    }
+    
+    func formWithRatingView() {
+        let form = UsabillaForm(formID: "yourFormId", type: .Rating)
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
         usabilla.configureForm()
@@ -37,9 +46,11 @@ class ViewController: UIViewController {
     
     func formWithCustomProperties() {
         var form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
-        form.customProperties = UsabillaForm.UsabillaFormProperties(formBackgroundColor: .black,
+        form.customProperties = UsabillaForm.UsabillaFormProperties(formBackgroundColor: .white,
                                                                     formTitleTextColor: .black,
-                                                                    formTitleFont: .systemFont(ofSize: 14, weight: .light))
+                                                                    formTitleFont: .systemFont(ofSize: 12, weight: .light),
+                                                                    feedBackQuestionTitle: "Your feedback",
+                                                                    ratingTitle: "Rate our awesome app")
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
         usabilla.configureForm()
@@ -52,10 +63,12 @@ extension ViewController: UsabillaFormDelegate {
     }
     
     func didFormSubmit(_ form: UIViewController, _ typedText: String) {
+        form.dismiss(animated: true, completion: nil)
         print(typedText)
     }
     
     func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
+        form.dismiss(animated: true, completion: nil)
         print(rating)
     }
 }

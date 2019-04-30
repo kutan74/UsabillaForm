@@ -39,6 +39,8 @@
 		A0CC17F32276D62300A7189F /* star_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CC17F12276D62200A7189F /* star_filled.png */; };
 		A0CC17F42276D71600A7189F /* star_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CC17F12276D62200A7189F /* star_filled.png */; };
 		A0CC17F52276D71600A7189F /* star_not_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CC17F02276D62200A7189F /* star_not_filled.png */; };
+		A0CC17F922781EB200A7189F /* UsabillaStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC17F822781EB200A7189F /* UsabillaStrings.swift */; };
+		A0CC17FA22781EE700A7189F /* UsabillaStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CC17F822781EB200A7189F /* UsabillaStrings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,7 @@
 		A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormResultDelegate.swift; sourceTree = "<group>"; };
 		A0CC17F02276D62200A7189F /* star_not_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_not_filled.png; sourceTree = "<group>"; };
 		A0CC17F12276D62200A7189F /* star_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_filled.png; sourceTree = "<group>"; };
+		A0CC17F822781EB200A7189F /* UsabillaStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,7 @@
 		A09419252270B12D00D2202E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A0CC17F722781EA300A7189F /* Constants */,
 				A09419592270D03600D2202E /* Models */,
 				A09419332270C87A00D2202E /* Protocols */,
 				A09419322270C86400D2202E /* Controllers */,
@@ -238,6 +242,14 @@
 				A0CC17F02276D62200A7189F /* star_not_filled.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A0CC17F722781EA300A7189F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A0CC17F822781EB200A7189F /* UsabillaStrings.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +405,7 @@
 				A094192F2270C6DB00D2202E /* UsabillaFormView.swift in Sources */,
 				A0941966227196F800D2202E /* UsabillaFormResultDelegate.swift in Sources */,
 				A09419272270B13A00D2202E /* UsabillaFormViewController.swift in Sources */,
+				A0CC17F922781EB200A7189F /* UsabillaStrings.swift in Sources */,
 				A09419242270B09900D2202E /* UIViewController+Child.swift in Sources */,
 				A094195D2270D06600D2202E /* UsabillaFeedBackView.swift in Sources */,
 			);
@@ -421,6 +434,7 @@
 				A09419362270C8A400D2202E /* UsabillaFormDelegate.swift in Sources */,
 				A09419572270CFA200D2202E /* UsabillaForm.swift in Sources */,
 				A09419612270D0B800D2202E /* UsabillaFeedBackView.swift in Sources */,
+				A0CC17FA22781EE700A7189F /* UsabillaStrings.swift in Sources */,
 				A09419312270C76600D2202E /* UsabillaFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

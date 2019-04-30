@@ -16,34 +16,39 @@ public enum FormType {
 public struct UsabillaForm {
     var formID: String
     var type: FormType?
+    var autoDismiss: Bool = false
     var customProperties: UsabillaFormProperties?
     
-    init(formID: String, type: FormType?, customProperties: UsabillaFormProperties?) {
+    init(formID: String,
+         type: FormType?,
+         customProperties: UsabillaFormProperties? = UsabillaFormProperties()) {
+        
         self.formID = formID
         self.type = type
         self.customProperties = customProperties
-    }
-    
-    init(formID: String, type: FormType?) {
-        self.formID = formID
-        self.type = type
-    }
+    }   
 }
 
 extension UsabillaForm {
+    // Custom form properties
     struct UsabillaFormProperties {
-        var formBackgroundColor: UIColor!
-        var formTitleTextColor: UIColor!
-        var formTitleFont: UIFont!
+        var formBackgroundColor: UIColor?
+        var formTitleTextColor: UIColor?
+        var formTitleFont: UIFont?
+        var feedBackQuestionTitle: String?
+        var ratingTitle: String?
         
         init(formBackgroundColor: UIColor? = .white ,
              formTitleTextColor: UIColor? = .black,
-             formTitleFont: UIFont? = UIFont.systemFont(ofSize: 14, weight: .light)) {
+             formTitleFont: UIFont? = UIFont.systemFont(ofSize: 14, weight: .light),
+             feedBackQuestionTitle: String? = UsabillaStrings.defaultFeedBackQuestionTitle,
+             ratingTitle: String? = UsabillaStrings.defaultRatingTitle) {
             
             self.formBackgroundColor = formBackgroundColor
             self.formTitleTextColor = formTitleTextColor
             self.formTitleFont = formTitleFont
+            self.feedBackQuestionTitle = feedBackQuestionTitle
+            self.ratingTitle = ratingTitle
         }
     }
 }
-

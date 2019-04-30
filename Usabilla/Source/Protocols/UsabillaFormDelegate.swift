@@ -12,7 +12,7 @@ import UIKit
 @objc public protocol UsabillaFormDelegate: class {
     /** Function to notify user that the form is ready to be displayed
     */
-    func didFormLoad(_ form: UIViewController)
+    @objc optional func didFormLoad(_ form: UIViewController)
     
     /** Feedback submission
     */
