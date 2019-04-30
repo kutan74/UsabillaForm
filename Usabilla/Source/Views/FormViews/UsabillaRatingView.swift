@@ -72,7 +72,7 @@ extension UsabillaRatingView {
             ])
     }
     
-    func layoutStackViewItems() {
+    fileprivate func layoutStackViewItems() {
         let starSize: CGFloat = 24
         
         for i in 1...5 {

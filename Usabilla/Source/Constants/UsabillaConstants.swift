@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct UsabillaStrings {
+public struct UsabillaConstants {
     static let defaultFeedBackQuestionTitle = "What do you think about our awesome product ?"
     static let defaultRatingTitle = "Rate our awesome product"
 }

@@ -52,6 +52,8 @@ extension UsabillaFormView {
             feedBackView.textField.becomeFirstResponder()
         case .Rating:
             ratingView.isHidden = false
+        case .Survey:
+            break
         }
     }
 }

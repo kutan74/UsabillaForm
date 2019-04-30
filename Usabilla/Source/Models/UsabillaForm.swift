@@ -11,6 +11,7 @@ import UIKit
 public enum FormType {
     case Rating
     case FeedBack
+    case Survey
 }
 
 public struct UsabillaForm {
@@ -18,10 +19,12 @@ public struct UsabillaForm {
     var type: FormType?
     var autoDismiss: Bool = false
     var customProperties: UsabillaFormProperties?
+    var survey: Survey?
     
     init(formID: String,
          type: FormType?,
-         customProperties: UsabillaFormProperties? = UsabillaFormProperties()) {
+         customProperties: UsabillaFormProperties? = UsabillaFormProperties(),
+         survey: Survey? = Survey()) {
         
         self.formID = formID
         self.type = type
@@ -41,14 +44,28 @@ extension UsabillaForm {
         init(formBackgroundColor: UIColor? = .white ,
              formTitleTextColor: UIColor? = .black,
              formTitleFont: UIFont? = UIFont.systemFont(ofSize: 14, weight: .light),
-             feedBackQuestionTitle: String? = UsabillaStrings.defaultFeedBackQuestionTitle,
-             ratingTitle: String? = UsabillaStrings.defaultRatingTitle) {
+             feedBackQuestionTitle: String? = UsabillaConstants.defaultFeedBackQuestionTitle,
+             ratingTitle: String? = UsabillaConstants.defaultRatingTitle) {
             
             self.formBackgroundColor = formBackgroundColor
             self.formTitleTextColor = formTitleTextColor
             self.formTitleFont = formTitleFont
             self.feedBackQuestionTitle = feedBackQuestionTitle
             self.ratingTitle = ratingTitle
+        }
+    }
+}
+
+extension UsabillaForm {
+    struct Survey {
+        var surveyQuestions: [String]!
+        
+        init(surveyQuestions: [String]) {
+            self.surveyQuestions = surveyQuestions
+        }
+        
+        init() {
+            
         }
     }
 }

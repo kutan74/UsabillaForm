@@ -13,6 +13,7 @@ open class Usabilla: UIViewController {
     public typealias FormLoadingHandler = (UIViewController) -> Void
     
     private var formViewController: UsabillaFormViewController!
+    private var surveyViewController: UsabillaSurveyViewController!
     private var form: UsabillaForm!
     
     init(form: UsabillaForm) {
@@ -31,19 +32,31 @@ open class Usabilla: UIViewController {
     
     /// Function to configure requested form
     open func configureForm() {
-        formViewController = UsabillaFormViewController(form: form)
-        formViewController.delegate = self
-        formViewController.configureFormView()
-        
-        // We're done. Let the user know form is ready to be presented
-        delegate?.didFormLoad!(formViewController)
+        switch form.type! {
+        case .FeedBack, .Rating:
+            formViewController = UsabillaFormViewController(form: form)
+            formViewController.delegate = self
+            formViewController.configureFormView()
+            delegate?.didFormLoad!(formViewController)
+        case .Survey:
+            surveyViewController = UsabillaSurveyViewController(form: form)
+            delegate?.didFormLoad!(surveyViewController)
+            break
+        }
     }
     
     open func configureForm(then handler: @escaping FormLoadingHandler) {
-        formViewController = UsabillaFormViewController(form: form)
-        formViewController.delegate = self
-        formViewController.configureFormView()
-        handler(formViewController)
+        switch form.type! {
+        case .FeedBack, .Rating:
+            formViewController = UsabillaFormViewController(form: form)
+            formViewController.delegate = self
+            formViewController.configureFormView()
+            handler(formViewController)
+        case .Survey:
+            surveyViewController = UsabillaSurveyViewController(form: form)              
+            handler(surveyViewController)
+            break
+        }
     }
 }
 

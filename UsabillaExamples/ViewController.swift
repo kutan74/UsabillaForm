@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func displayForm(_ sender: Any) {
-        formWithCustomProperties()
+        surveyForm()
     }
     
     func formWithDefaultProperties() {
@@ -26,6 +26,19 @@ class ViewController: UIViewController {
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
         usabilla.configureForm()
+    }
+    
+    func surveyForm() {
+        var form = UsabillaForm(formID: "yourFormId", type: .Survey)
+        let surveyQuestions = ["How do you scale our product ?",
+                               "How was your overal shopping experience ?"]
+        form.survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
+        
+        usabilla = Usabilla(form: form)
+        usabilla.delegate = self
+        usabilla.configureForm { (surveyViewController) in
+            self.present(surveyViewController, animated: true, completion: nil)
+        }
     }
     
     func formWithCompletionHandler() {

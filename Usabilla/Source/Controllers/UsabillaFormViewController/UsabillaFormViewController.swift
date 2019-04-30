@@ -85,7 +85,7 @@ extension UsabillaFormViewController {
    
     /// Load the requested form by the user
     func configureFormView() {
-        // Load the default form if none requested
+        /// Function to layout form elements
         formView.activateForm(for: form)
     }   
 }
