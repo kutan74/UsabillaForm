@@ -10,7 +10,7 @@ Welcome to **UsabillaForm** — a suite of class that aims to display feedback f
 
 ### Installation 
 ```swift
-pod 'UsabillaForm', '~> 0.0.9'
+pod 'UsabillaForm'
 ```
 
 ### Examples 
