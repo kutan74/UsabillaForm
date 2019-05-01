@@ -8,6 +8,11 @@
 
 Welcome to **UsabillaForm** — a suite of class that aims to display feedback forms in your existing Swift projects. 
 
+### Installation 
+```swift
+pod 'UsabillaForm', '~> 0.0.9'
+```
+
 ### Examples 
 
 Create a new Usabilla feedback form without custom properties
