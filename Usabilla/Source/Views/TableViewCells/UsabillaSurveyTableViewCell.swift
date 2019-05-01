@@ -24,6 +24,7 @@ class UsabillaSurveyTableViewCell: UITableViewCell {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .init(width: 25, height: 25)
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 12
         layout.minimumInteritemSpacing = 0
         return layout
     }()

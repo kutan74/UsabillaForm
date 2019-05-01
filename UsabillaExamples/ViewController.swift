@@ -34,6 +34,11 @@ class ViewController: UIViewController {
                                "How was your overal shopping experience ?"]
         form.survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
         
+        var surveyCustomProperties = UsabillaForm.UsabillaFormProperties()
+        surveyCustomProperties.surveyAccentColor = .red
+        
+        form.customProperties = surveyCustomProperties
+        
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
         usabilla.configureForm { (surveyViewController) in

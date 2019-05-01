@@ -77,11 +77,7 @@ extension UsabillaSurveyViewController {
     }
     
     fileprivate func registerTableViewCell() {
-        guard let survey = form.survey else {
-            return
-        }
-        
-        dataSource = UsabillaSurveyViewControllerDataSource(surveyQuestions: survey.surveyQuestions)
+        dataSource = UsabillaSurveyViewControllerDataSource(form: form)
         dataSource.delegate = self
 
         tableView.register(UsabillaSurveyTableViewCell.self, forCellReuseIdentifier: "surveyCell")
@@ -98,6 +94,7 @@ extension UsabillaSurveyViewController: UsabillaSurveyDataSourceDelegate {
     }
 }
 
+// MARK: Tap actions
 extension UsabillaSurveyViewController {
     @objc func onSubmitButtonTapped() {
         delegate?.onSubmitSurveyButtonTapped(result: surveyResult)

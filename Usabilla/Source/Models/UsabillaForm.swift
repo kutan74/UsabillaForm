@@ -40,18 +40,21 @@ extension UsabillaForm {
         var formTitleFont: UIFont?
         var feedBackQuestionTitle: String?
         var ratingTitle: String?
+        var surveyAccentColor: UIColor
         
         init(formBackgroundColor: UIColor? = .white ,
              formTitleTextColor: UIColor? = .black,
              formTitleFont: UIFont? = UIFont.systemFont(ofSize: 14, weight: .light),
              feedBackQuestionTitle: String? = UsabillaConstants.defaultFeedBackQuestionTitle,
-             ratingTitle: String? = UsabillaConstants.defaultRatingTitle) {
+             ratingTitle: String? = UsabillaConstants.defaultRatingTitle,
+             surveyAccentColor: UIColor = .black) {
             
             self.formBackgroundColor = formBackgroundColor
             self.formTitleTextColor = formTitleTextColor
             self.formTitleFont = formTitleFont
             self.feedBackQuestionTitle = feedBackQuestionTitle
             self.ratingTitle = ratingTitle
+            self.surveyAccentColor = surveyAccentColor
         }
     }
 }

@@ -13,8 +13,6 @@ open class UsabillaSurveyRatingCollectionViewCell: UICollectionViewCell {
         let view = UIView()
         view.layer.cornerRadius = 12.5
         view.clipsToBounds = true
-        view.layer.borderColor = UIColor.black.cgColor
-        view.layer.borderWidth = 1.0
         return view
     }()
     public override init(frame: CGRect) {
@@ -31,5 +29,12 @@ open class UsabillaSurveyRatingCollectionViewCell: UICollectionViewCell {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension UsabillaSurveyRatingCollectionViewCell {
+    func applySurveyCustomProperties(accentColor: UIColor) {
+        checkBoxView.layer.borderColor = accentColor.cgColor
+        checkBoxView.layer.borderWidth = 1.0
     }
 }
