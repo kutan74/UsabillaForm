@@ -35,6 +35,8 @@ class UsabillaFeedBackView: UIView {
     }
 }
 
+// MARK: Layout
+
 extension UsabillaFeedBackView {
     fileprivate func layoutViews() {
         [titleLabel, textField].forEach {
@@ -55,8 +57,9 @@ extension UsabillaFeedBackView {
 }
 
 // MARK: Form settings
+
 extension UsabillaFeedBackView {
-    /** Apply form settings. Apply default settings If user doesn't specify one
+    /** Apply form settings. Will apply default settings If user didn't specify one
     */
     func applyFormSettings(for form: UsabillaForm) {
         titleLabel.textColor = form.customProperties?.formTitleTextColor

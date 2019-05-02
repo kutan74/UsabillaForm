@@ -8,6 +8,12 @@
 
 import Foundation
 
+/** Protocol for Usabilla class to receive survey submission callbacks
+*/
 public protocol UsabillaSurveyResultDelegate: class {
+    /** This is function is called once the user submitted survey form
+     
+     - Parameter result: Survey questions and ratings being sent
+     */
     func onSubmitSurveyButtonTapped(result: [String: Int])
 }

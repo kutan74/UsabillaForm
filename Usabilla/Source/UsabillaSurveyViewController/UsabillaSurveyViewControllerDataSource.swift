@@ -8,6 +8,9 @@
 
 import UIKit
 
+/** Class to represents UsabillaSurveyViewController's tableview datasource & delegate
+ UsabilaSurveyViewController contains a TableView whose cells also contains a CollectionView
+*/
 open class UsabillaSurveyViewControllerDataSource: NSObject {
     var form: UsabillaForm!
     var selection: [Int: Int] = [:]
@@ -18,6 +21,8 @@ open class UsabillaSurveyViewControllerDataSource: NSObject {
         self.form = form
     }
 }
+
+// MARK: TableView datasource & delegate
 
 extension UsabillaSurveyViewControllerDataSource: UITableViewDelegate, UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,11 +36,15 @@ extension UsabillaSurveyViewControllerDataSource: UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "surveyCell", for: indexPath) as! UsabillaSurveyTableViewCell
         if let surveyQuestions = form.survey?.surveyQuestions {
             cell.titleLabel.text = surveyQuestions[indexPath.row]
+            
+            /// Setting datasource
             cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
         }        
         return cell
     }
 }
+
+// MARK: CollectionView datasource & delegate
 
 extension UsabillaSurveyViewControllerDataSource: UICollectionViewDelegate, UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,8 +53,8 @@ extension UsabillaSurveyViewControllerDataSource: UICollectionViewDelegate, UICo
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ratingCell", for: indexPath) as! UsabillaSurveyRatingCollectionViewCell
-        
         cell.applySurveyCustomProperties(accentColor: form.customProperties!.surveyAccentColor)
+        
         // I think it's a bad way to select / deselect cells
         // Couldn't come up with a better solution
         if selection[collectionView.tag] == indexPath.row {
@@ -57,8 +66,11 @@ extension UsabillaSurveyViewControllerDataSource: UICollectionViewDelegate, UICo
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /// Question
         let row = collectionView.tag
+        /// Rating
         let column = indexPath.row
+
         selection[row] = column
         collectionView.reloadData()
         delegate?.onQuestionRated(for: form.survey!.surveyQuestions[row], with: column)

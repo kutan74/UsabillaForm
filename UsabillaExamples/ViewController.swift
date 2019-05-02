@@ -18,68 +18,79 @@ class ViewController: UIViewController {
     }
 
     @IBAction func displayForm(_ sender: Any) {
-        surveyForm()
+        feedBackFormWithDefaultProperties()
     }
     
-    func formWithDefaultProperties() {
+    func feedBackFormWithDefaultProperties() {
         let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
-        usabilla.configureForm()
-    }
-    
-    func surveyForm() {
-        var form = UsabillaForm(formID: "yourFormId", type: .Survey)
-        let surveyQuestions = ["How do you scale our product ?",
-                               "How was your overal shopping experience ?"]
-        form.survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
-        
-        var surveyCustomProperties = UsabillaForm.UsabillaFormProperties()
-        surveyCustomProperties.surveyAccentColor = .red
-        
-        form.customProperties = surveyCustomProperties
-        
-        usabilla = Usabilla(form: form)
-        usabilla.delegate = self
-        usabilla.configureForm { (surveyViewController) in
-            self.present(surveyViewController, animated: true, completion: nil)
+        usabilla.configureFeedBackForm { [weak self] result in
+            switch result {
+            case .success(let form):
+                self?.present(form, animated: true, completion: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
     
-    func formWithCompletionHandler() {
+    func feedBackFormWithCustomProperties() {
         let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
+        form.customProperties?.formBackgroundColor = .white
+        form.customProperties?.formTitleFont = UIFont.systemFont(ofSize: 14, weight: .light)
+        form.customProperties?.formTitleTextColor = .black
+        form.customProperties?.feedBackQuestionTitle = "Your Feedback ?"
+        
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
-        usabilla.configureForm { (form) in
-            self.present(form, animated: true, completion: nil)
+        usabilla.configureFeedBackForm { [weak self] result in
+            switch result {
+            case .success(let form):
+                self?.present(form, animated: true, completion: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
     
-    func formWithRatingView() {
+    func ratingForm() {
         let form = UsabillaForm(formID: "yourFormId", type: .Rating)
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
-        usabilla.configureForm()
+        usabilla.configureFeedBackForm { [weak self] result in
+            switch result {
+            case .success(let form):
+                self?.present(form, animated: true, completion: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
-    func formWithCustomProperties() {
-        var form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
-        form.customProperties = UsabillaForm.UsabillaFormProperties(formBackgroundColor: .white,
-                                                                    formTitleTextColor: .black,
-                                                                    formTitleFont: .systemFont(ofSize: 12, weight: .light),
-                                                                    feedBackQuestionTitle: "Your feedback",
-                                                                    ratingTitle: "Rate our awesome app")
+    func surveyForm() {
+        let surveyQuestions = ["Question 1",
+                               "Question 2",
+                               "Question 3"]
+        let survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
+        let form = UsabillaForm(formID: "yourFormId",
+                                type: .Survey,
+                                survey: survey)
+        
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
-        usabilla.configureForm()
+        usabilla.configureSurvey { [weak self] result in
+            switch result {
+            case .success(let form):
+                self?.present(form, animated: true, completion: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
 extension ViewController: UsabillaFormDelegate {   
-    func didFormLoad(_ form: UIViewController) {
-        present(form, animated: true, completion: nil)
-    }
-    
     func didFormSubmit(_ form: UIViewController, _ typedText: String) {
         form.dismiss(animated: true, completion: nil)
         print(typedText)

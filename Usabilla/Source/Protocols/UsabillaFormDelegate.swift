@@ -9,21 +9,23 @@
 import UIKit
 
 /// Protocol to communicate with root view controller
-@objc public protocol UsabillaFormDelegate: class {
-    /** Function to notify user that the form is ready to be displayed
-    */
-    @objc optional func didFormLoad(_ form: UIViewController)
-    
-    /** Feedback submission
-    */
+@objc public protocol UsabillaFormDelegate: class {  
+    /** This is function is called once the user submitted feedeback form
+     
+     - Parameter form: FormViewController being loaded
+     */
     @objc optional func didFormSubmit(_ form: UIViewController, _ typedText: String)
 
-    /** Rating submission
-    */
+    /** This is function is called once the user submitted rating form
+     
+     - Parameter form: FormViewController being loaded
+     */
     @objc optional func didRatingSubmit(_ form: UIViewController, _ rating: Int)
     
-    /** Survey submission
-    */
+    /** This is function is called once the user submitted survey form
+     
+     - Parameter form: SurveyViewController being loaded
+     */
     @objc optional func didSurveySubmitted(_ form: UIViewController, _ surveyResult: [String: Int])
 }
 

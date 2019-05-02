@@ -8,6 +8,8 @@
 
 import UIKit
 
+/** TextView with keyboard action handler
+ */
 class UsabillaTextView: UITextView {
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -31,6 +33,9 @@ extension UsabillaTextView {
 }
 
 extension UsabillaTextView {
+    // I didn't like the way I handle done action at here
+    // Right now If the user presses done button it means he/she is done with the form
+    // That might not be correct all the time. UsabillaFormViewController should handle this part
     fileprivate func addDoneButtonOnKeyboard()
     {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))

@@ -18,13 +18,13 @@ class UsabillaSurveyTableViewCell: UITableViewCell {
     }()
     
     var collectionView: UICollectionView!
+    
     // CollectionView Flow Layout.
-    // Item width and height = Screen.width - (left + right spacing of parent view) - (spacing between items, x9) / itemCount
     var layout: UICollectionViewLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = .init(width: 25, height: 25)
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 12
+        layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 0
         return layout
     }()
@@ -38,6 +38,8 @@ class UsabillaSurveyTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: Layout
 
 private extension UsabillaSurveyTableViewCell {
     func layoutViews() {
@@ -65,7 +67,11 @@ private extension UsabillaSurveyTableViewCell {
     
 }
 
+// MARK: CollectionView delegate & datasource
+
 extension UsabillaSurveyTableViewCell {
+    /** Function to set collectionview cell delegate & datasource to UsabillaSurveyDataSource
+     */
     func setCollectionViewDataSourceDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(_ dataSourceDelegate: D, forRow row: Int) {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate

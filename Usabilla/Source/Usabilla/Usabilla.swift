@@ -10,11 +10,19 @@ import UIKit
 
 open class Usabilla: UIViewController {
     open var delegate: UsabillaFormDelegate?
-    public typealias FormLoadingHandler = (UIViewController) -> Void
+    public typealias FormLoadingHandler = (Result< UIViewController, Error>) -> Void
     
+    // Feedback and rating forms
     private var formViewController: UsabillaFormViewController!
+    
+    // Survey form
     private var surveyViewController: UsabillaSurveyViewController!
+    
+    /// Form being created by the user
     private var form: UsabillaForm!
+    
+    /// Form validator
+    private let formValidator = UsabillaFormValidator()
     
     init(form: UsabillaForm) {
         self.form = form
@@ -27,40 +35,37 @@ open class Usabilla: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
-    /// Function to configure requested form
-    open func configureForm() {
-        switch form.type! {
-        case .FeedBack, .Rating:
+}
+
+// MARK: Form loading
+
+extension Usabilla {
+    open func configureFeedBackForm(then handler: @escaping FormLoadingHandler) {
+        do {
+            try formValidator.validateRequestedForm(id: form.formID)
             formViewController = UsabillaFormViewController(form: form)
             formViewController.delegate = self
             formViewController.configureFormView()
-            delegate?.didFormLoad!(formViewController)
-        case .Survey:
-            surveyViewController = UsabillaSurveyViewController(form: form)
-            surveyViewController.delegate = self
-            delegate?.didFormLoad!(surveyViewController)
-            break
+            handler(.success(formViewController))
+        } catch {
+            handler(.failure(error))
         }
     }
     
-    open func configureForm(then handler: @escaping FormLoadingHandler) {
-        switch form.type! {
-        case .FeedBack, .Rating:
-            formViewController = UsabillaFormViewController(form: form)
-            formViewController.delegate = self
-            formViewController.configureFormView()
-            handler(formViewController)
-        case .Survey:
+    open func configureSurvey(then handler: @escaping FormLoadingHandler) {
+        do {
+            try formValidator.validateRequestedSurveyForm(for: form.survey?.surveyQuestions ?? [])
             surveyViewController = UsabillaSurveyViewController(form: form)
             surveyViewController.delegate = self
-            handler(surveyViewController)
-            break
+            handler(.success(surveyViewController))
+        } catch {
+            handler(.failure(error))
         }
     }
 }
+
+// MARK: UsabillaFormResultDelegate methods
 
 extension Usabilla: UsabillaFormResultDelegate {
     public func onRatingSubmitButtonTapped(with rating: Int) {
@@ -71,6 +76,8 @@ extension Usabilla: UsabillaFormResultDelegate {
         delegate?.didFormSubmit!(formViewController, typedText)
     }
 }
+
+// MARK: UsabillaSurveyResultDelegate methods
 
 extension Usabilla: UsabillaSurveyResultDelegate {
     public func onSubmitSurveyButtonTapped(result: [String : Int]) {

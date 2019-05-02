@@ -24,14 +24,15 @@ class UsabillaFormView: UIView {
 }
 
 // MARK: Layout
+
 private extension UsabillaFormView {
     func layoutViews() {
         [feedBackView, ratingView].forEach {
             addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.isHidden = true
+            
             // Layout form views to bottom
-            // Let them adjust their own heights
             NSLayoutConstraint.activate([
                 $0.leadingAnchor.constraint(equalTo: leadingAnchor),
                 $0.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -42,6 +43,7 @@ private extension UsabillaFormView {
 }
 
 // MARK: FormViews Visibility
+
 extension UsabillaFormView {
     func activateForm(for form: UsabillaForm) {
         switch form.type! {
@@ -53,6 +55,7 @@ extension UsabillaFormView {
         case .Rating:
             ratingView.isHidden = false
         case .Survey:
+            // Survey forms are being handled by UsabillaSurveyViewController
             break
         }
     }

@@ -14,10 +14,9 @@ public enum FormType {
     case Survey
 }
 
-public struct UsabillaForm {
+public class UsabillaForm {
     var formID: String
     var type: FormType?
-    var autoDismiss: Bool = false
     var customProperties: UsabillaFormProperties?
     var survey: Survey?
     
@@ -29,12 +28,13 @@ public struct UsabillaForm {
         self.formID = formID
         self.type = type
         self.customProperties = customProperties
+        self.survey = survey
     }   
 }
 
 extension UsabillaForm {
     // Custom form properties
-    struct UsabillaFormProperties {
+    class UsabillaFormProperties {
         var formBackgroundColor: UIColor?
         var formTitleTextColor: UIColor?
         var formTitleFont: UIFont?
@@ -60,7 +60,7 @@ extension UsabillaForm {
 }
 
 extension UsabillaForm {
-    struct Survey {
+    class Survey {
         var surveyQuestions: [String]!
         
         init(surveyQuestions: [String]) {

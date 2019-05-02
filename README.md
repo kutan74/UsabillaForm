@@ -1,90 +1,132 @@
+
 <p align="center">
-    <img src="https://img.shields.io/badge/Swift-5.0-orange.svg" />
-    <a href="https://swift.org/package-manager">
-        <img src="https://img.shields.io/cocoapods/v/UsabillaForm.svg" alt="Swift Package Manager" />
-    </a>
-    <img src="https://img.shields.io/badge/platforms-ios-brightgreen.svg?style=flat" alt="Mac + Linux" />
+
+<img src="https://img.shields.io/badge/Swift-5.0-orange.svg" />
+
+<a href="https://swift.org/package-manager">
+
+<img src="https://img.shields.io/cocoapods/v/UsabillaForm.svg" alt="Swift Package Manager" />
+
+</a>
+
+<img src="https://img.shields.io/badge/platforms-ios-brightgreen.svg?style=flat" alt="Mac + Linux" />
+
 </p>
 
-Welcome to **UsabillaForm** — a suite of class that aims to display feedback forms in your existing Swift projects. 
+  
 
-### Installation 
+Welcome to ****UsabillaForm**** — a suite of class that aims to display feedback forms in your existing Swift projects.
+
+  
+
+### Installation
+
 ```swift
+
 pod 'UsabillaForm'
+
 ```
 
-### Examples 
+  
 
-Create a new Usabilla feedback form without custom properties
+### Examples
+
+A form must be provided with a UsabillaForm object in order to be initialized
+
 ```swift
+
 let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
+let usabilla = Usabilla(form: form)
+usabilla.delegate = self
+usabilla.configureFeedBackForm { [weak self] result in
+    switch result {
+	case .success(let form):
+		self?.present(form, animated: true, completion: nil)
+	case .failure(let error):
+		print(error.localizedDescription)
+	}
+}
 ```
 
 Or rating view
+
 ```swift
+
 let form = UsabillaForm(formID: "yourFormId", type: .Rating)
-```
-
-You can set custom properties such as form background color, form title color and form title font
-```swift
-let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
-form.customProperties = UsabillaForm.UsabillaFormProperties(formBackgroundColor: .white,
-                                                                    formTitleTextColor: .black,
-                                                                    formTitleFont: .systemFont(ofSize: 12, weight: .light),
-                                                                    feedBackQuestionTitle: "Your feedback",
-                                                                    ratingTitle: "Rate our awesome app")
-```
-
-Initialise the Usabilla form and set delegate to self
-```swift
 let usabilla = Usabilla(form: form)
 usabilla.delegate = self
-usabilla.configureForm()
+usabilla.configureFeedBackForm { [weak self] result in
+    switch result {
+	case .success(let form):
+		self?.present(form, animated: true, completion: nil)
+	case .failure(let error):
+		print(error.localizedDescription)
+	}
+}
+
+```
+
+  
+
+You can set custom properties such as form background color, form title color and form title font
+
+```swift
+
+form.customProperties?.formBackgroundColor = .white
+form.customProperties?.formTitleFont = UIFont.systemFont(ofSize: 14, weight: .light)
+form.customProperties?.formTitleTextColor = .black
+form.customProperties?.feedBackQuestionTitle = "Your Feedback ?"
+
 ```
 
 Comfort the UsabillaFormDelegate in your view controller
+
 ```swift
+
 extension YourViewController: UsabillaFormDelegate {
-	func didFormLoad(_ form: UIViewController) {
-		// present(form, animated: true, completion: nil)
+    func didFormSubmit(_ form: UIViewController, _ typedText: String) {
+	// form.dismiss(animated: true, completion: nil)
 	}
 
-    	// Optional func for feedback form
-	func didFormSubmit(_ form: UIViewController, _ typedText: String) {
-		// form.dismiss(animated: true, completion: nil)
-	}	
-
-        // Optional func for rating form
-    	func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
-        	// form.dismiss(animated: true, completion: nil)
+	func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
+	// form.dismiss(animated: true, completion: nil)
 	}
 }
-```
 
-You can load the form with completion handler. You don't have to comfort the didFormLoad if you use completion handler
-```swift
-usabilla.configureForm { (form) in
-    self.present(form, animated: true, completion: nil)            
-}
 ```
 
 ### Surveys
+
 ```swift
-var form = UsabillaForm(formID: "yourFormId", type: .Survey)
-let surveyQuestions = ["How do you scale our product ?",
-                       "How was your overal shopping experience ?"]
-form.survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
-        
+let surveyQuestions = ["Question 1",
+		       "Question 2",
+		       "Question 3"]
+let survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
+
+let form = UsabillaForm(formID: "yourFormId", 
+			type: .Survey,
+			survey: survey)
+
 usabilla = Usabilla(form: form)
 usabilla.delegate = self
-usabilla.configureForm { (surveyViewController) in
-    self.present(surveyViewController, animated: true, completion: nil)
+usabilla.configureSurvey { [weak self] result in
+    switch result {
+    case .success(let form):
+    	self?.present(form, animated: true, completion: nil)
+    case .failure(let error):
+        print(error.localizedDescription)
+     }
+   }
 }
+
 ```
 
-Delegate
+Survey Delegate will return [String: Int]. Survey questions and their ratings
+
 ```swift
+
 func didSurveySubmitted(_ form: UIViewController, _ surveyResult: [String : Int]) {
-    form.dismiss(animated: true, completion: nil)    
+    form.dismiss(animated: true, completion: nil)   
 }
+
 ```

@@ -48,6 +48,8 @@ class UsabillaRatingView: UIView {
     }
 }
 
+// MARK: Layout
+
 extension UsabillaRatingView {
     fileprivate func layoutViews() {
         [titleLabel, stackView, sendButton].forEach {
@@ -89,6 +91,7 @@ extension UsabillaRatingView {
 }
 
 // MARK: Rating star update methods
+
 extension UsabillaRatingView {
     func updateRatingStars(to index: Int) {
         stackView.subviews.forEach {

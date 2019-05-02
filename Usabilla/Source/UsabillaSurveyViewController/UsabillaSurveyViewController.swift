@@ -26,7 +26,7 @@ open class UsabillaSurveyViewController: UIViewController {
         return button
     }()
     
-    // Question - Rating
+    // Questions - Ratings
     private var surveyResult: [String: Int] = [:]
     
     init(form: UsabillaForm) {
@@ -46,7 +46,11 @@ open class UsabillaSurveyViewController: UIViewController {
     }
 }
 
+// MARK: Layout
+
 extension UsabillaSurveyViewController {
+    /// I'd normally create a file called UsabillaSurveyView and layout tableview at there
+    /// It looks messy I know :)
     fileprivate func layoutViews() {
         tableView = UITableView()
         tableView.tableFooterView = UIView()
@@ -88,6 +92,7 @@ extension UsabillaSurveyViewController {
 }
 
 // MARK: Extension to receive question ratings from UsabillaSurveyDataSource
+
 extension UsabillaSurveyViewController: UsabillaSurveyDataSourceDelegate {
     public func onQuestionRated(for question: String, with rating: Int) {
         surveyResult[question] = rating
@@ -95,6 +100,7 @@ extension UsabillaSurveyViewController: UsabillaSurveyDataSourceDelegate {
 }
 
 // MARK: Tap actions
+
 extension UsabillaSurveyViewController {
     @objc func onSubmitButtonTapped() {
         delegate?.onSubmitSurveyButtonTapped(result: surveyResult)
