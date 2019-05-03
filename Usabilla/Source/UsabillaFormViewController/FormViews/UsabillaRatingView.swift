@@ -34,6 +34,7 @@ class UsabillaRatingView: UIView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
         button.layer.cornerRadius = 5
         button.clipsToBounds = true
+        button.accessibilityIdentifier = "sendButton"
         return button
     }()
     
@@ -42,7 +43,7 @@ class UsabillaRatingView: UIView {
         layoutViews()
         layoutStackViewItems()
     }
-    
+        
     required init?(coder aDecoder: NSCoder) {
         fatalError("init (coder:) has not been implemented")
     }

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ViewController: UIViewController {
     var usabilla: Usabilla!
     
@@ -18,14 +17,46 @@ class ViewController: UIViewController {
     }
 
     @IBAction func displayForm(_ sender: Any) {
-        feedBackFormWithDefaultProperties()
-    }
-    
-    func feedBackFormWithDefaultProperties() {
         let form = UsabillaForm(formID: "yourFormId", type: .FeedBack)
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
         usabilla.configureFeedBackForm { [weak self] result in
+            switch result {
+            case .success(let form):
+                self?.present(form, animated: true, completion: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func displayRatingForm(_ sender: Any) {
+        let form = UsabillaForm(formID: "yourFormId", type: .Rating)
+        usabilla = Usabilla(form: form)
+        usabilla.delegate = self
+        usabilla.configureFeedBackForm { [weak self] result in
+            switch result {
+            case .success(let form):
+                self?.present(form, animated: true, completion: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    
+    @IBAction func displaySurvey(_ sender: Any) {
+        let surveyQuestions = ["Question 1",
+                               "Question 2",
+                               "Question 3"]
+        let survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
+        let form = UsabillaForm(formID: "yourFormId",
+                                type: .Survey,
+                                survey: survey)
+        
+        usabilla = Usabilla(form: form)
+        usabilla.delegate = self
+        usabilla.configureSurvey { [weak self] result in
             switch result {
             case .success(let form):
                 self?.present(form, animated: true, completion: nil)
@@ -45,41 +76,6 @@ class ViewController: UIViewController {
         usabilla = Usabilla(form: form)
         usabilla.delegate = self
         usabilla.configureFeedBackForm { [weak self] result in
-            switch result {
-            case .success(let form):
-                self?.present(form, animated: true, completion: nil)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func ratingForm() {
-        let form = UsabillaForm(formID: "yourFormId", type: .Rating)
-        usabilla = Usabilla(form: form)
-        usabilla.delegate = self
-        usabilla.configureFeedBackForm { [weak self] result in
-            switch result {
-            case .success(let form):
-                self?.present(form, animated: true, completion: nil)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func surveyForm() {
-        let surveyQuestions = ["Question 1",
-                               "Question 2",
-                               "Question 3"]
-        let survey = UsabillaForm.Survey(surveyQuestions: surveyQuestions)
-        let form = UsabillaForm(formID: "yourFormId",
-                                type: .Survey,
-                                survey: survey)
-        
-        usabilla = Usabilla(form: form)
-        usabilla.delegate = self
-        usabilla.configureSurvey { [weak self] result in
             switch result {
             case .success(let form):
                 self?.present(form, animated: true, completion: nil)

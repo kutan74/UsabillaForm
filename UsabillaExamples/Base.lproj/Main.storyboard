@@ -19,17 +19,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6C7-ad-8Yd">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="153.5" y="106" width="107" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="feedBackButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="U4o-XT-efc"/>
+                                </constraints>
+                                <state key="normal" title="Feedback Form"/>
                                 <connections>
                                     <action selector="displayForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FcI-WY-9WI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaH-z0-1Hu">
+                                <rect key="frame" x="165" y="157" width="84" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="ratingButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eQi-XE-lE3"/>
+                                </constraints>
+                                <state key="normal" title="Rating Form"/>
+                                <connections>
+                                    <action selector="displayRatingForm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xzL-gp-QGL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzH-Uq-BeJ">
+                                <rect key="frame" x="183" y="208" width="48" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="surveyButton"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jeJ-RD-hFF"/>
+                                </constraints>
+                                <state key="normal" title="Survey"/>
+                                <connections>
+                                    <action selector="displaySurvey:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bIv-M2-9gL"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6C7-ad-8Yd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Afs-sM-BU6"/>
-                            <constraint firstItem="6C7-ad-8Yd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YHH-NR-w2j"/>
+                            <constraint firstItem="6C7-ad-8Yd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Gd-XK-VR8"/>
+                            <constraint firstItem="6C7-ad-8Yd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="62" id="8NR-OD-MWw"/>
+                            <constraint firstItem="MaH-z0-1Hu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AT5-pK-NxB"/>
+                            <constraint firstItem="MaH-z0-1Hu" firstAttribute="top" secondItem="6C7-ad-8Yd" secondAttribute="bottom" constant="21" id="Bhv-1B-Bm9"/>
+                            <constraint firstItem="tzH-Uq-BeJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cU5-gf-bKU"/>
+                            <constraint firstItem="tzH-Uq-BeJ" firstAttribute="top" secondItem="MaH-z0-1Hu" secondAttribute="bottom" constant="21" id="eCl-3Z-ZXd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

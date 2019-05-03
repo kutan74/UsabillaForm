@@ -23,6 +23,7 @@ open class UsabillaSurveyViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
         button.layer.cornerRadius = 5
         button.clipsToBounds = true
+        button.accessibilityIdentifier = "submit"
         return button
     }()
     
@@ -43,6 +44,7 @@ open class UsabillaSurveyViewController: UIViewController {
         view.backgroundColor = .white
         layoutViews()
         registerTableViewCell()
+        view.accessibilityIdentifier = "surveyViewController"
     }
 }
 
@@ -59,6 +61,7 @@ extension UsabillaSurveyViewController {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.contentInsetAdjustmentBehavior = .never
+        tableView.accessibilityIdentifier = "surveyTableView"
         
         [submitButton, tableView].forEach {
             view.addSubview($0!)

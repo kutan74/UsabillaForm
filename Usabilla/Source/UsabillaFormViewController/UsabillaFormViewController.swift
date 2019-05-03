@@ -36,6 +36,12 @@ open class UsabillaFormViewController: UIViewController {
         layoutViews()
         setKeyboardNotifications()
         setLayoutGestures()
+        
+        view.accessibilityIdentifier = "formViewController"
+        
+        formView.accessibilityIdentifier = "formView"
+        formView.feedBackView.accessibilityIdentifier = "feedBackView"
+        formView.ratingView.accessibilityIdentifier = "ratingView"
     }
     
     fileprivate func setKeyboardNotifications() {

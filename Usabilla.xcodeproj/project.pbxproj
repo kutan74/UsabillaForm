@@ -39,6 +39,8 @@
 		A09F2C69227B571D001DF0B1 /* UsabillaFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F2C68227B571D001DF0B1 /* UsabillaFormValidator.swift */; };
 		A09F2C6A227B5724001DF0B1 /* UsabillaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F2C66227B5685001DF0B1 /* UsabillaError.swift */; };
 		A09F2C6B227B5727001DF0B1 /* UsabillaFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F2C68227B571D001DF0B1 /* UsabillaFormValidator.swift */; };
+		A09F2C70227C1DCB001DF0B1 /* UsabillaFormValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F2C6F227C1DCB001DF0B1 /* UsabillaFormValidatorTests.swift */; };
+		A09F2C78227C1FAF001DF0B1 /* UsabillaExamplesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09F2C77227C1FAF001DF0B1 /* UsabillaExamplesUITests.swift */; };
 		A0CC17F22276D62300A7189F /* star_not_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CC17F02276D62200A7189F /* star_not_filled.png */; };
 		A0CC17F32276D62300A7189F /* star_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CC17F12276D62200A7189F /* star_filled.png */; };
 		A0CC17F42276D71600A7189F /* star_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CC17F12276D62200A7189F /* star_filled.png */; };
@@ -66,6 +68,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A09418B8227073C800D2202E;
 			remoteInfo = Usabilla;
+		};
+		A09F2C7A227C1FAF001DF0B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A09418B0227073C800D2202E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A094190B2270747300D2202E;
+			remoteInfo = UsabillaExamples;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -95,6 +104,10 @@
 		A0941965227196F800D2202E /* UsabillaFormResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormResultDelegate.swift; sourceTree = "<group>"; };
 		A09F2C66227B5685001DF0B1 /* UsabillaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaError.swift; sourceTree = "<group>"; };
 		A09F2C68227B571D001DF0B1 /* UsabillaFormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormValidator.swift; sourceTree = "<group>"; };
+		A09F2C6F227C1DCB001DF0B1 /* UsabillaFormValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaFormValidatorTests.swift; sourceTree = "<group>"; };
+		A09F2C75227C1FAF001DF0B1 /* UsabillaExamplesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UsabillaExamplesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A09F2C77227C1FAF001DF0B1 /* UsabillaExamplesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaExamplesUITests.swift; sourceTree = "<group>"; };
+		A09F2C79227C1FAF001DF0B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0CC17F02276D62200A7189F /* star_not_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_not_filled.png; sourceTree = "<group>"; };
 		A0CC17F12276D62200A7189F /* star_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_filled.png; sourceTree = "<group>"; };
 		A0CC17F822781EB200A7189F /* UsabillaConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsabillaConstants.swift; sourceTree = "<group>"; };
@@ -129,6 +142,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A09F2C72227C1FAF001DF0B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -138,6 +158,7 @@
 				A09418BB227073C800D2202E /* Usabilla */,
 				A09418C6227073C800D2202E /* UsabillaTests */,
 				A094190D2270747300D2202E /* UsabillaExamples */,
+				A09F2C76227C1FAF001DF0B1 /* UsabillaExamplesUITests */,
 				A09418BA227073C800D2202E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -148,6 +169,7 @@
 				A09418B9227073C800D2202E /* Usabilla.framework */,
 				A09418C2227073C800D2202E /* UsabillaTests.xctest */,
 				A094190C2270747300D2202E /* UsabillaExamples.app */,
+				A09F2C75227C1FAF001DF0B1 /* UsabillaExamplesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,6 +191,7 @@
 			children = (
 				A09418C7227073C800D2202E /* UsabillaTests.swift */,
 				A09418C9227073C800D2202E /* Info.plist */,
+				A09F2C6F227C1DCB001DF0B1 /* UsabillaFormValidatorTests.swift */,
 			);
 			path = UsabillaTests;
 			sourceTree = "<group>";
@@ -282,6 +305,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		A09F2C76227C1FAF001DF0B1 /* UsabillaExamplesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A09F2C77227C1FAF001DF0B1 /* UsabillaExamplesUITests.swift */,
+				A09F2C79227C1FAF001DF0B1 /* Info.plist */,
+			);
+			path = UsabillaExamplesUITests;
+			sourceTree = "<group>";
+		};
 		A0CC17ED2276D5E900A7189F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +399,24 @@
 			productReference = A094190C2270747300D2202E /* UsabillaExamples.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A09F2C74227C1FAF001DF0B1 /* UsabillaExamplesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A09F2C7C227C1FAF001DF0B1 /* Build configuration list for PBXNativeTarget "UsabillaExamplesUITests" */;
+			buildPhases = (
+				A09F2C71227C1FAF001DF0B1 /* Sources */,
+				A09F2C72227C1FAF001DF0B1 /* Frameworks */,
+				A09F2C73227C1FAF001DF0B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A09F2C7B227C1FAF001DF0B1 /* PBXTargetDependency */,
+			);
+			name = UsabillaExamplesUITests;
+			productName = UsabillaExamplesUITests;
+			productReference = A09F2C75227C1FAF001DF0B1 /* UsabillaExamplesUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -387,6 +437,10 @@
 					A094190B2270747300D2202E = {
 						CreatedOnToolsVersion = 10.2;
 					};
+					A09F2C74227C1FAF001DF0B1 = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = A094190B2270747300D2202E;
+					};
 				};
 			};
 			buildConfigurationList = A09418B3227073C800D2202E /* Build configuration list for PBXProject "Usabilla" */;
@@ -405,6 +459,7 @@
 				A09418B8227073C800D2202E /* Usabilla */,
 				A09418C1227073C800D2202E /* UsabillaTests */,
 				A094190B2270747300D2202E /* UsabillaExamples */,
+				A09F2C74227C1FAF001DF0B1 /* UsabillaExamplesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -435,6 +490,13 @@
 				A09419162270747400D2202E /* Assets.xcassets in Resources */,
 				A09419142270747300D2202E /* Main.storyboard in Resources */,
 				A0CC17F42276D71600A7189F /* star_filled.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A09F2C73227C1FAF001DF0B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09F2C70227C1DCB001DF0B1 /* UsabillaFormValidatorTests.swift in Sources */,
 				A09418C8227073C800D2202E /* UsabillaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,6 +566,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A09F2C71227C1FAF001DF0B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A09F2C78227C1FAF001DF0B1 /* UsabillaExamplesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -510,6 +581,11 @@
 			isa = PBXTargetDependency;
 			target = A09418B8227073C800D2202E /* Usabilla */;
 			targetProxy = A09418C4227073C800D2202E /* PBXContainerItemProxy */;
+		};
+		A09F2C7B227C1FAF001DF0B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A094190B2270747300D2202E /* UsabillaExamples */;
+			targetProxy = A09F2C7A227C1FAF001DF0B1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -786,6 +862,44 @@
 			};
 			name = Release;
 		};
+		A09F2C7D227C1FAF001DF0B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PT2V6T6JDZ;
+				INFOPLIST_FILE = UsabillaExamplesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.UsabillaExamplesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UsabillaExamples;
+			};
+			name = Debug;
+		};
+		A09F2C7E227C1FAF001DF0B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PT2V6T6JDZ;
+				INFOPLIST_FILE = UsabillaExamplesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kutan.UsabillaExamplesUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UsabillaExamples;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -821,6 +935,15 @@
 			buildConfigurations = (
 				A094191C2270747400D2202E /* Debug */,
 				A094191D2270747400D2202E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A09F2C7C227C1FAF001DF0B1 /* Build configuration list for PBXNativeTarget "UsabillaExamplesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A09F2C7D227C1FAF001DF0B1 /* Debug */,
+				A09F2C7E227C1FAF001DF0B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
