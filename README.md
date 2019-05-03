@@ -86,11 +86,11 @@ Comfort the UsabillaFormDelegate in your view controller
 extension YourViewController: UsabillaFormDelegate {
     func didFormSubmit(_ form: UIViewController, _ typedText: String) {
 	// form.dismiss(animated: true, completion: nil)
-	}
+    }
 
-	func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
+    func didRatingSubmit(_ form: UIViewController, _ rating: Int) {
 	// form.dismiss(animated: true, completion: nil)
-	}
+    }
 }
 
 ```
